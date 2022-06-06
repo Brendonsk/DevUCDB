@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProvaDevUCDB.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data_vencimento)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+@*    string Class = item.data_vencimento>=DateTime.Now.AddDays(3)
+        ? "green" 
+        : item.data_vencimento<DateTime.Now 
+            ? "red" 
+            : "orange";*@
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome_produto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateForDisplay)
+        </td>
+        <td>
+            @if (item.data_vencimento>=DateTime.Now.AddDays(3))
+            {
+                <span class="px-2 badge bg-green">Ok</span>
+            } else if (item.data_vencimento<DateTime.Now)
+            {
+                <span class="px-2 badge bg-red">Vencido</span>
+            } else
+            {
+                <span class="px-2 badge bg-orange">Vence em até 3 dias</span>
+            }
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+            <a asp-action="Details" asp-route-id="@item.id">Visualizar</a> |
+            <a asp-action="Delete" asp-route-id="@item.id">Apagar</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

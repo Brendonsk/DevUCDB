@@ -1,0 +1,44 @@
+﻿@model ProvaDevUCDB.Models.Pedido
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Pedido</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="nome_produto" class="control-label"></label>
+                <input asp-for="nome_produto" class="form-control" />
+                <span asp-validation-for="nome_produto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor" class="control-label"></label>
+                <input asp-for="valor" type="number" class="form-control" />
+                <span asp-validation-for="valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="data_vencimento" class="control-label"></label>
+                <input asp-for="data_vencimento" type="date" class="form-control" />
+                <span asp-validation-for="data_vencimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
