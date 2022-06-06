@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProvaDevUCDB.Data;
 
@@ -11,9 +12,10 @@ using ProvaDevUCDB.Data;
 namespace ProvaDevUCDB.Migrations
 {
     [DbContext(typeof(ProvaDevUCDBContext))]
-    partial class ProvaDevUCDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220606133947_Added-Discount")]
+    partial class AddedDiscount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

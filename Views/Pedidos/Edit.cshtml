@@ -13,20 +13,27 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id" />
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="nome_produto" class="control-label"></label>
                 <input asp-for="nome_produto" class="form-control" />
                 <span asp-validation-for="nome_produto" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="valor" class="control-label"></label>
                 <input asp-for="valor" type="number" class="form-control" />
                 <span asp-validation-for="valor" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="data_vencimento" class="control-label"></label>
                 <input asp-for="data_vencimento" type="date" class="form-control" />
                 <span asp-validation-for="data_vencimento" class="text-danger"></span>
+            </div>
+            <hr/>
+
+            <div class="form-group mb-3">
+                <label asp-for="Desconto" class="control-label"></label>
+                <input asp-for="Desconto" type="number" class="form-control" title="Desconto a ser aplicado, em porcentagem"/>
+                <span asp-validation-for="Desconto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

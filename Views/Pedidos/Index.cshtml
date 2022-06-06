@@ -16,7 +16,10 @@
                 @Html.DisplayNameFor(model => model.nome_produto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.valor)
+                @Html.DisplayNameFor(model => model.valor_descontado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desconto)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.data_vencimento)
@@ -27,26 +30,24 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-@*    string Class = item.data_vencimento>=DateTime.Now.AddDays(3)
-        ? "green" 
-        : item.data_vencimento<DateTime.Now 
-            ? "red" 
-            : "orange";*@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.nome_produto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.valor)
+            @Html.DisplayFor(modelItem => item.valor_descontado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descontoForDisplay)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.dateForDisplay)
         </td>
         <td>
-            @if (item.data_vencimento>=DateTime.Now.AddDays(3))
+            @if (item.data_vencimento.Date>=DateTime.Now.Date.AddDays(3))
             {
                 <span class="px-2 badge bg-green">Ok</span>
-            } else if (item.data_vencimento<DateTime.Now)
+            } else if (item.data_vencimento.Date<DateTime.Now.Date)
             {
                 <span class="px-2 badge bg-red">Vencido</span>
             } else

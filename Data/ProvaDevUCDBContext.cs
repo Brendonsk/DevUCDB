@@ -12,6 +12,7 @@ namespace ProvaDevUCDB.Data
         public ProvaDevUCDBContext (DbContextOptions<ProvaDevUCDBContext> options)
             : base(options)
         {
+            Database.Migrate();
         }
 
         public DbSet<ProvaDevUCDB.Models.Pedido>? Pedido { get; set; }

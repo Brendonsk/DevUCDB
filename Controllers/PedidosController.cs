@@ -54,7 +54,7 @@ namespace ProvaDevUCDB
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nome_produto,valor,data_vencimento")] Pedido pedido)
+        public async Task<IActionResult> Create([Bind("id,nome_produto,valor,Desconto,data_vencimento")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace ProvaDevUCDB
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("id,nome_produto,valor,data_vencimento")] Pedido pedido)
+        public async Task<IActionResult> Edit(Guid id, [Bind("id,nome_produto,valor,Desconto,data_vencimento")] Pedido pedido)
         {
             if (id != pedido.id)
             {
@@ -158,5 +158,15 @@ namespace ProvaDevUCDB
         {
           return _context.Pedido.Any(e => e.id == id);
         }
+
+        //public async Task<IActionResult> AplicarDesconto(Guid id, decimal porcentagem)
+        //{
+        //    var pedido = await _context.Pedido.FindAsync(id);
+        //    pedido.Desconto = porcentagem;
+        //    _context.Update(pedido);
+        //    _context.SaveChanges();
+
+        //    return View("Edit", pedido);
+        //}
     }
 }

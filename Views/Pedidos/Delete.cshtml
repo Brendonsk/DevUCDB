@@ -6,7 +6,7 @@
 
 <h1>Apagar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza de que deseja apagar este pedido?</h3>
 <div>
     <h4>Pedido</h4>
     <hr />
@@ -24,16 +24,22 @@
             @Html.DisplayFor(model => model.valor)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Desconto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descontoForDisplay)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.data_vencimento)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.data_vencimento)
+            @Html.DisplayFor(model => model.dateForDisplay)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar à listagem</a>
     </form>
 </div>
